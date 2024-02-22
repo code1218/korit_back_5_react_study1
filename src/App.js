@@ -7,6 +7,7 @@ import StudentPage from "./pages/StudentPage";
 import Params from "./pages/Params";
 import { useState } from "react";
 import SearchPage from "./pages/SearchPage";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   const [ value, setValue ] = useState("");
@@ -20,6 +21,7 @@ function App() {
         <Link to="/sta1"><li>학생들정보1</li></Link>
         <Link to="/sta3"><li>학생들정보3</li></Link>
         <Link to={`/p?data=${value}`}><li>파람스</li></Link>
+        <Link to={`/books?bookName=${value}`}><li>도서검색</li></Link>
       </ul>
       <Routes>
         <Route path="/memoization" element={ <Memoization /> }/>
@@ -28,6 +30,8 @@ function App() {
         <Route path="/sta3" element={ <StudentArrayPage3 /> }/>
         <Route path="/p" element={ <Params /> }/>
         <Route path="/books" element={ <SearchPage /> }/>
+        <Route path="/product/:productId" element={ <ProductPage /> }/>
+
       </Routes>
     </>
   );
